@@ -161,6 +161,17 @@ body:active {
   max-height: 400px;
   object-fit: contain;
   pointer-events: none; /* Let the container handle dragging */
+  width: 100%;
+  height: auto;
+  display: block;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.scrap-item img {
+  aspect-ratio: auto;
+  contain: layout style paint;
 }
 
 /* Tape styling */
@@ -221,4 +232,13 @@ body:active {
   .scrap-item img {
     max-width: 200px;
   }
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
