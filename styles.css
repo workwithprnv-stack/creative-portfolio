@@ -1,0 +1,224 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #f7f3ed;
+  --text-main: #111;
+  --accent: #f24b04; /* Bright orange */
+  --accent-secondary: #00d2ff;
+  --toolbar-bg: rgba(255, 255, 255, 0.85);
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-hand: 'Permanent Marker', cursive;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Stop whole page scrolling, canvas will handle it */
+  background-color: var(--bg-color);
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  background-image: radial-gradient(#d3cdc4 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Let's pick an awesome cursor */
+body {
+  cursor: grab;
+}
+
+body:active {
+  cursor: grabbing;
+}
+
+/* Toolbar */
+.toolbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: var(--toolbar-bg);
+  backdrop-filter: blur(12px);
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 2px solid #000;
+  box-shadow: 6px 6px 0px #000;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  user-select: none;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid #000;
+  transform: rotate(-3deg);
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  transition: all 0.2s ease;
+  color: var(--text-main);
+}
+
+.filter-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.filter-btn.active {
+  background: var(--text-main);
+  color: #fff;
+  border: 1px solid #000;
+}
+
+.scatter-btn {
+  background: #fff;
+  border: 2px solid #000;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  transition: transform 0.1s;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.scatter-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+/* Canvas Area */
+#canvas-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  touch-action: none; /* Prevent default scrolling/pinching */
+}
+
+#canvas-area {
+  /* Creating a massive playground */
+  width: 300vw;
+  height: 300vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+/* Scrapbook Items (Draggable) */
+.scrap-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #e0dcd3;
+  box-shadow: 4px 8px 16px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+  border-radius: 2px;
+  cursor: grab;
+  /* transition settings for non-dragging states */
+  transition: opacity 0.3s, transform 0.2s ease, filter 0.3s ease;
+  user-select: none;
+  touch-action: none; /* Important for pointer events */
+  will-change: transform;
+}
+
+.scrap-item.is-dragging {
+  cursor: grabbing;
+  box-shadow: 12px 24px 32px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
+  z-index: 1000 !important;
+  opacity: 0.95;
+}
+
+.scrap-item img {
+  display: block;
+  max-width: 350px;
+  max-height: 400px;
+  object-fit: contain;
+  pointer-events: none; /* Let the container handle dragging */
+}
+
+/* Tape styling */
+.tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(2px) contrast(1.2);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  opacity: 0.8;
+  z-index: 2;
+  /* Wobbly edges to look like tape */
+  clip-path: polygon(0 5%, 98% 0, 100% 95%, 2% 100%);
+}
+
+.tape-angled {
+  transform: translateX(-50%) rotate(-5deg);
+  background-color: rgba(255, 250, 200, 0.5); /* yellowish tape */
+}
+
+/* Abstract Stickers */
+.decorative-element {
+  position: absolute;
+  font-family: var(--font-hand);
+  font-size: 3rem;
+  color: var(--accent);
+  text-shadow: 2px 2px 0px #000;
+  user-select: none;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.sticker-1 { top: 40%; left: 40%; transform: rotate(-15deg); font-size: 5rem; }
+.sticker-2 { top: 60%; left: 70%; transform: rotate(10deg); color: var(--accent-secondary); }
+.sticker-3 { top: 30%; left: 60%; transform: rotate(-5deg); background: #fff; padding: 5px 15px; border: 3px solid #000; color: #000; text-shadow: none; box-shadow: 4px 4px 0px var(--accent); border-radius: 2px;}
+
+/* Filtering effects */
+.scrap-item.dimmed {
+  opacity: 0.15;
+  filter: grayscale(80%) blur(2px);
+  pointer-events: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-wrap: wrap;
+    border-radius: 15px;
+    padding: 10px;
+    justify-content: center;
+    width: 90%;
+  }
+  .scrap-item img {
+    max-width: 200px;
+  }
+}

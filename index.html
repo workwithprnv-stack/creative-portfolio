@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scrapbook Canvas | Pranav Shinde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Permanent+Marker&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Floating UI / Toolbar -->
+  <header class="toolbar">
+    <div class="logo">Pranav Shinde</div>
+    <nav class="filters" aria-label="Filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="id-card">ID Cards</button>
+      <button class="filter-btn" data-filter="font">Typography</button>
+      <button class="filter-btn" data-filter="poster">Posters</button>
+      <button class="filter-btn" data-filter="product">Products</button>
+      <button class="filter-btn" data-filter="fashion">Fashion</button>
+      <button class="filter-btn" data-filter="data-viz">Data Viz</button>
+    </nav>
+    <button id="scatter-btn" class="scatter-btn" title="Scatter Items"> Scatter</button>
+  </header>
+
+  <!-- Interactive Canvas -->
+  <main id="canvas-container">
+    <div id="canvas-area">
+      <!-- ID Cards -->
+      <div class="scrap-item" data-category="id-card">
+        <div class="tape"></div>
+        <img src="ID-card-desg/1.png" alt="ID Card Design 1" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="id-card">
+        <div class="tape tape-angled"></div>
+        <img src="ID-card-desg/2.png" alt="ID Card Design 2" draggable="false" />
+      </div>
+
+      <!-- Fonts -->
+      <div class="scrap-item" data-category="font">
+        <div class="tape"></div><img src="font-desg/1.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape tape-angled"></div><img src="font-desg/2.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape"></div><img src="font-desg/3.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape tape-angled"></div><img src="font-desg/4.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape"></div><img src="font-desg/5.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape tape-angled"></div><img src="font-desg/6.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape"></div><img src="font-desg/7.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape tape-angled"></div><img src="font-desg/8.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape"></div><img src="font-desg/9.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape tape-angled"></div><img src="font-desg/10.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape"></div><img src="font-desg/11.png" alt="Font Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="font">
+        <div class="tape tape-angled"></div><img src="font-desg/image.png" alt="Font Design" draggable="false" />
+      </div>
+
+      <!-- Posters -->
+      <div class="scrap-item" data-category="poster">
+        <div class="tape tape-angled"></div><img src="poster-desg/5.png" alt="Poster Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="poster">
+        <div class="tape"></div><img src="poster-desg/poster-desg-1.png" alt="Poster Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="poster">
+        <div class="tape tape-angled"></div><img src="poster-desg/poster-desg.png" alt="Poster Design"
+          draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="poster">
+        <div class="tape"></div><img src="poster-desg/poster-desg4.png" alt="Poster Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="poster">
+        <div class="tape tape-angled"></div><img src="poster-desg/poster-desg5.png" alt="Poster Design"
+          draggable="false" />
+      </div>
+
+      <!-- Products -->
+      <div class="scrap-item" data-category="product">
+        <div class="tape"></div><img src="product-desg/1.png" alt="Product Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="product">
+        <div class="tape tape-angled"></div><img src="product-desg/2.png" alt="Product Design" draggable="false" />
+      </div>
+
+      <!-- Fashion -->
+      <div class="scrap-item" data-category="fashion">
+        <div class="tape"></div><img src="tshirt-desg/tshirt-desg.png" alt="Fashion Design" draggable="false" />
+      </div>
+
+      <!-- Data Viz -->
+      <div class="scrap-item" data-category="data-viz">
+        <div class="tape"></div><img src="data-viz/data-viz.png" alt="Data Viz Design" draggable="false" />
+      </div>
+      <div class="scrap-item" data-category="data-viz">
+        <div class="tape tape-angled"></div><img src="data-viz/data-viz-1.png" alt="Data Viz Design"
+          draggable="false" />
+      </div>
+
+      <!-- Abstract decorative elements -->
+      <div class="decorative-element sticker-1" draggable="false">Product Design</div>
+      <div class="decorative-element sticker-2" draggable="false">Branding & Visual Identity</div>
+      <div class="decorative-element sticker-3" draggable="false">Creativity</div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
