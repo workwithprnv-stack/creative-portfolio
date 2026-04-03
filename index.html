@@ -8,7 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Permanent+Marker&display=swap"
     rel="stylesheet" />
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Favicon - Letter P -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50' y='70' font-size='70' font-weight='bold' fill='%23fff' text-anchor='middle' font-family='Arial'>P</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' fill='%23000' rx='40'/><text x='90' y='130' font-size='120' font-weight='bold' fill='%23fff' text-anchor='middle' font-family='Arial'>P</text></svg>" />
   
   <!-- Preload above-the-fold images -->
   <link rel="preload" as="image" href="ID-card-desg/1.png" />
@@ -30,7 +36,26 @@
       <button class="filter-btn" data-filter="fashion">Fashion</button>
       <button class="filter-btn" data-filter="data-viz">Data Viz</button>
     </nav>
-    <button id="scatter-btn" class="scatter-btn" title="Scatter Items"> Scatter</button>
+    <div class="header-actions">
+      <nav class="social-links-header" aria-label="Social Media">
+        <a href="https://github.com/connectwithprnv" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-link-header">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.behance.net/pranavshinde20" target="_blank" rel="noopener noreferrer" title="Behance" class="social-link-header">
+          <i class="fab fa-behance"></i>
+        </a>
+        <a href="https://medium.com/@connectwithprnv" target="_blank" rel="noopener noreferrer" title="Medium" class="social-link-header">
+          <i class="fab fa-medium"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/connectwithprnv/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-link-header">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.strava.com/athletes/151771796" target="_blank" rel="noopener noreferrer" title="Strava" class="social-link-header">
+          <i class="fab fa-strava"></i>
+        </a>
+      </nav>
+      <button id="scatter-btn" class="scatter-btn" title="Scatter Items"> Scatter</button>
+    </div>
   </header>
 
   <!-- Interactive Canvas -->

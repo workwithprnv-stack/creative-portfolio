@@ -242,3 +242,46 @@ img {
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Social Media Links in Header */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-links-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.social-link-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  color: #000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link-header:hover {
+  color: #666;
+  transform: scale(1.15);
+}
+
+@media (max-width: 768px) {
+  .social-links-header {
+    gap: 8px;
+  }
+
+  .social-link-header {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+}
