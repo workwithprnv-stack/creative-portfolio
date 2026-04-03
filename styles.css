@@ -169,6 +169,17 @@ body:active {
   -webkit-font-smoothing: antialiased;
 }
 
+.scrap-item iframe {
+  display: block;
+  max-width: 350px;
+  max-height: 400px;
+  pointer-events: none; /* Let the container handle dragging */
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 2px;
+}
+
 .scrap-item img {
   aspect-ratio: auto;
   contain: layout style paint;
@@ -221,6 +232,23 @@ body:active {
 }
 
 /* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .toolbar {
+    padding: 8px 20px;
+    gap: 15px;
+  }
+  
+  .filter-btn {
+    padding: 5px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .logo {
+    font-size: 1rem;
+    padding: 3px 10px;
+  }
+}
+
 @media (max-width: 768px) {
   .toolbar {
     flex-wrap: wrap;
@@ -228,9 +256,139 @@ body:active {
     padding: 10px;
     justify-content: center;
     width: 90%;
+    top: 10px;
+    gap: 10px;
   }
+  
+  .filters {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+  }
+  
+  .filter-btn {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .logo {
+    font-size: 0.9rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .scatter-btn {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .scrap-item {
+    padding: 10px;
+  }
+  
   .scrap-item img {
     max-width: 200px;
+    max-height: 250px;
+  }
+  
+  .scrap-item iframe {
+    max-width: 200px;
+    max-height: 150px;
+  }
+  
+  .tape {
+    width: 60px;
+    height: 25px;
+  }
+  
+  .decorative-element {
+    font-size: 2rem;
+  }
+  
+  .sticker-1 { font-size: 3rem; }
+  .sticker-2 { font-size: 2.5rem; }
+  .sticker-3 { 
+    font-size: 1.5rem;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    width: 95%;
+    padding: 8px;
+    top: 5px;
+  }
+  
+  .filters {
+    gap: 4px;
+  }
+  
+  .filter-btn {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+  }
+  
+  .logo {
+    font-size: 0.8rem;
+  }
+  
+  .scatter-btn {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+  }
+  
+  .scrap-item {
+    padding: 8px;
+  }
+  
+  .scrap-item img {
+    max-width: 150px;
+    max-height: 200px;
+  }
+  
+  .scrap-item iframe {
+    max-width: 150px;
+    max-height: 120px;
+  }
+  
+  .tape {
+    width: 50px;
+    height: 20px;
+  }
+  
+  .decorative-element {
+    font-size: 1.5rem;
+  }
+  
+  .sticker-1 { font-size: 2rem; }
+  .sticker-2 { font-size: 1.8rem; }
+  .sticker-3 { 
+    font-size: 1.2rem;
+    padding: 2px 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .toolbar {
+    width: 98%;
+  }
+  
+  .filter-btn {
+    padding: 2px 6px;
+    font-size: 0.7rem;
+  }
+  
+  .scrap-item img {
+    max-width: 120px;
+    max-height: 160px;
+  }
+  
+  .scrap-item iframe {
+    max-width: 120px;
+    max-height: 100px;
   }
 }
 
@@ -355,6 +513,7 @@ img {
     justify-content: center;
     width: 90%;
     gap: 12px;
+    bottom: 10px;
   }
 
   .bottom-header-text {
@@ -373,5 +532,36 @@ img {
     width: 32px;
     height: 32px;
     font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom-header {
+    width: 95%;
+    padding: 8px;
+    bottom: 5px;
+  }
+  
+  .bottom-header-text {
+    font-size: 0.7rem;
+  }
+  
+  .social-link-bottom {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .bottom-header {
+    width: 98%;
+    padding: 6px;
+  }
+  
+  .social-link-bottom {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
   }
 }
